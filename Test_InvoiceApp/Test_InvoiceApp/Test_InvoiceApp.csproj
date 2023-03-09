@@ -9,6 +9,11 @@
 
   <ItemGroup>
     <None Remove="appsettings.json" />
+    <None Remove="customer.png" />
+    <None Remove="customerType.png" />
+    <None Remove="logo.png" />
+    <None Remove="logo.svg" />
+    <None Remove="schad-logo-light.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +32,14 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="customer.png" />
+    <Resource Include="customerType.png" />
+    <Resource Include="logo.png" />
+    <Resource Include="logo.svg" />
+    <Resource Include="schad-logo-light.png" />
   </ItemGroup>
 
 </Project>
