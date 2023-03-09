@@ -4,4 +4,6 @@ global using Microsoft.Extensions.DependencyInjection;
 global using System;
 global using System.IO;
 global using System.Windows;
+global using Test_InvoiceApp.Models;
+global using Test_InvoiceApp.Extensions;
 global using Test_InvoiceApp.DataContext;
