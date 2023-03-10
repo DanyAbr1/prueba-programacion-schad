@@ -9,22 +9,48 @@
 
   <ItemGroup>
     <None Remove="appsettings.json" />
-    <None Remove="customer.png" />
-    <None Remove="customerType.png" />
-    <None Remove="logo.png" />
-    <None Remove="logo.svg" />
-    <None Remove="schad-logo-light.png" />
+    <None Remove="Resources\Images\img_background.png" />
+    <None Remove="Resources\Images\img_contact.png" />
+    <None Remove="Resources\Images\img_home.png" />
+    <None Remove="Resources\Images\img_map.png" />
+    <None Remove="Resources\Images\img_message.png" />
+    <None Remove="Resources\Images\img_setting.png" />
+    <None Remove="Resources\Images\img_signout.png" />
+    <None Remove="Resources\Images\tgBtn_default.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\Images\img_background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\img_contact.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\img_home.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\img_map.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\img_message.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\img_setting.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\img_signout.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\tgBtn_default.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Views\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,14 +58,6 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="7.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="customer.png" />
-    <Resource Include="customerType.png" />
-    <Resource Include="logo.png" />
-    <Resource Include="logo.svg" />
-    <Resource Include="schad-logo-light.png" />
   </ItemGroup>
 
 </Project>

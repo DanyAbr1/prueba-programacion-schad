@@ -1,4 +1,4 @@
-﻿namespace Test_InvoiceApp.DataContext;
+﻿namespace Test_InvoiceApp.Data;
 
 public class InvoiceAppContext : DbContext
 {
