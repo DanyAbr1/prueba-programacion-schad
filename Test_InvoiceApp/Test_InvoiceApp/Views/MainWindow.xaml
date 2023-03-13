@@ -15,7 +15,6 @@
     WindowStyle="None"
     mc:Ignorable="d">
 
-
     <Window.Resources>
 
         <!--  // Toggle Button Style Template //  -->
@@ -140,123 +139,29 @@
     </Window.Resources>
 
     <Grid>
-
+        <!--  // Background Image //  -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
         <Grid>
-            <!--  // Background Image //  -->
-            <Grid x:Name="BG" PreviewMouseLeftButtonDown="BG_PreviewMouseLeftButtonDown">
 
-                <Grid.Background>
-
-                    <ImageBrush
-                        x:Name="img_bg"
-                        ImageSource="/Resources/images/img_background.png"
-                        Stretch="None" />
-
-                </Grid.Background>
-
-            </Grid>
             <!--  // Navigation Panel //  -->
             <Grid
                 x:Name="nav_pnl"
-                Width="65"
                 HorizontalAlignment="Left"
                 Background="#2E333A">
 
                 <StackPanel x:Name="st_pnl">
                     <!--  // Grid for the Menu Toggle Button //  -->
-                    <Grid Height="90">
-                        <!--  // Menu title text //  -->
-                        <TextBlock
-                            Grid.Row="1"
-                            Grid.Column="0"
-                            Margin="73,-20,0,0"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
-                            Background="Transparent"
-                            FontSize="22"
-                            Foreground="White"
-                            Style="{StaticResource font_style}"
-                            Text="M E N U">
-                            // Shadow Effect //
-                            <TextBlock.Effect>
-
-                                <DropShadowEffect
-                                    BlurRadius="10"
-                                    Direction="-90"
-                                    ShadowDepth="1"
-                                    Color="White" />
-
-                            </TextBlock.Effect>
-
-                        </TextBlock>
-                        <!--  // Toggle Button //  -->
-                        <ToggleButton
-                            x:Name="Tg_Btn"
-                            Grid.Column="0"
-                            Width="30"
-                            Height="30"
-                            Margin="18,-20,0,0"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
-                            BorderThickness="0"
-                            Checked="Tg_Btn_Checked"
-                            Style="{StaticResource tb_style}"
-                            Unchecked="Tg_Btn_Unchecked">
-                            <!--  // Toggle button default background image //  -->
-                            <ToggleButton.Background>
-
-                                <ImageBrush ImageSource="/Resources/images/tgBtn_default.png" Stretch="None" />
-
-                            </ToggleButton.Background>
-                            <!--  // Toggle Button - Checked, Unchecked events //  -->
-                            <ToggleButton.Triggers>
-
-                                <EventTrigger RoutedEvent="ToggleButton.Unchecked">
-
-                                    <BeginStoryboard>
-
-                                        <Storyboard x:Name="HideStackPanel">
-
-                                            <DoubleAnimation
-                                                BeginTime="0:0:0"
-                                                Storyboard.TargetName="nav_pnl"
-                                                Storyboard.TargetProperty="Width"
-                                                From="230"
-                                                To="65"
-                                                Duration="0:0:0.2" />
-
-                                        </Storyboard>
-
-                                    </BeginStoryboard>
-
-                                </EventTrigger>
-
-                                <EventTrigger RoutedEvent="ToggleButton.Checked">
-
-                                    <BeginStoryboard>
-
-                                        <Storyboard x:Name="ShowStackPanel">
-
-                                            <DoubleAnimation
-                                                BeginTime="0:0:0"
-                                                Storyboard.TargetName="nav_pnl"
-                                                Storyboard.TargetProperty="Width"
-                                                From="65"
-                                                To="230"
-                                                Duration="0:0:0.3" />
-
-                                        </Storyboard>
-
-                                    </BeginStoryboard>
-
-                                </EventTrigger>
-
-                            </ToggleButton.Triggers>
 
 
-                        </ToggleButton>
 
-                    </Grid>
+                    <Image
+                        Width="150"
+                        Margin="0,0,0,20"
+                        Source="../Resources/Images/img_background.png" />
+
                     <!--  // ListView with menu list items //  -->
                     <ListView
                         x:Name="LV"
@@ -264,10 +169,7 @@
                         BorderBrush="Transparent"
                         ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                         <!--  // Home //  -->
-                        <ListViewItem
-                            Margin="0,0,0,15"
-                            HorizontalAlignment="Left"
-                            MouseEnter="ListViewItem_MouseEnter">
+                        <ListViewItem Margin="0,0,0,15" HorizontalAlignment="Left" Selected="Home_OnSelected">
 
                             <StackPanel Width="230" Orientation="Horizontal">
 
@@ -275,9 +177,6 @@
                                     Margin="12,0,0,0"
                                     Source="/Resources/images/img_home.png"
                                     Stretch="None" />
-
-                                <Button Command="{Binding NavigateToHome}" />
-
                                 <TextBlock
                                     Margin="25,0,0,0"
                                     Style="{StaticResource font_style}"
@@ -297,10 +196,7 @@
 
                         </ListViewItem>
                         <!--  // Customers //  -->
-                        <ListViewItem
-                            Margin="0,0,0,15"
-                            HorizontalAlignment="Left"
-                            MouseEnter="ListViewItem_MouseEnter">
+                        <ListViewItem Margin="0,0,0,15" HorizontalAlignment="Left" Selected="Customer_OnSelected">
 
                             <StackPanel Width="230" Orientation="Horizontal">
 
@@ -308,9 +204,6 @@
                                     Margin="12,0,0,0"
                                     Source="/Resources/images/img_contact.png"
                                     Stretch="None" />
-
-                                <Button Command="{Binding NavigateToCustomer}" />
-
 
                                 <TextBlock
                                     Margin="25,0,0,0"
@@ -333,7 +226,6 @@
                         <ListViewItem
                             Margin="0,0,0,15"
                             HorizontalAlignment="Left"
-                            MouseEnter="ListViewItem_MouseEnter"
                             Selected="CloseApp_OnSelected">
 
                             <StackPanel Width="230" Orientation="Horizontal">
@@ -424,6 +316,7 @@
 
         </Grid>
 
-        <ContentControl Content="{Binding Navigation.CurrentView}" />
+        <ContentControl Grid.Column="1" Content="{Binding Navigation.CurrentView}" />
+
     </Grid>
 </Window>
