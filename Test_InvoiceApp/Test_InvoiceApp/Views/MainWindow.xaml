@@ -4,6 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="clr-namespace:Test_InvoiceApp.Views"
+    xmlns:vm="clr-namespace:Test_InvoiceApp.ViewModels"
     Title="MainWindow"
     Width="800"
     Height="600"
@@ -12,6 +14,7 @@
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
     mc:Ignorable="d">
+
 
     <Window.Resources>
 
@@ -139,9 +142,7 @@
     <Grid>
 
         <Grid>
-
             <!--  // Background Image //  -->
-
             <Grid x:Name="BG" PreviewMouseLeftButtonDown="BG_PreviewMouseLeftButtonDown">
 
                 <Grid.Background>
@@ -154,9 +155,7 @@
                 </Grid.Background>
 
             </Grid>
-
             <!--  // Navigation Panel //  -->
-
             <Grid
                 x:Name="nav_pnl"
                 Width="65"
@@ -164,13 +163,9 @@
                 Background="#2E333A">
 
                 <StackPanel x:Name="st_pnl">
-
                     <!--  // Grid for the Menu Toggle Button //  -->
-
                     <Grid Height="90">
-
                         <!--  // Menu title text //  -->
-
                         <TextBlock
                             Grid.Row="1"
                             Grid.Column="0"
@@ -182,9 +177,7 @@
                             Foreground="White"
                             Style="{StaticResource font_style}"
                             Text="M E N U">
-
-                            <!--  // Shadow Effect //  -->
-
+                            // Shadow Effect //
                             <TextBlock.Effect>
 
                                 <DropShadowEffect
@@ -196,9 +189,7 @@
                             </TextBlock.Effect>
 
                         </TextBlock>
-
                         <!--  // Toggle Button //  -->
-
                         <ToggleButton
                             x:Name="Tg_Btn"
                             Grid.Column="0"
@@ -211,17 +202,13 @@
                             Checked="Tg_Btn_Checked"
                             Style="{StaticResource tb_style}"
                             Unchecked="Tg_Btn_Unchecked">
-
                             <!--  // Toggle button default background image //  -->
-
                             <ToggleButton.Background>
 
                                 <ImageBrush ImageSource="/Resources/images/tgBtn_default.png" Stretch="None" />
 
                             </ToggleButton.Background>
-
                             <!--  // Toggle Button - Checked, Unchecked events //  -->
-
                             <ToggleButton.Triggers>
 
                                 <EventTrigger RoutedEvent="ToggleButton.Unchecked">
@@ -270,17 +257,13 @@
                         </ToggleButton>
 
                     </Grid>
-
                     <!--  // ListView with menu list items //  -->
-
                     <ListView
                         x:Name="LV"
                         Background="Transparent"
                         BorderBrush="Transparent"
                         ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-
                         <!--  // Home //  -->
-
                         <ListViewItem
                             Margin="0,0,0,15"
                             HorizontalAlignment="Left"
@@ -293,15 +276,16 @@
                                     Source="/Resources/images/img_home.png"
                                     Stretch="None" />
 
+                                <Button Command="{Binding NavigateToHome}" />
+
                                 <TextBlock
                                     Margin="25,0,0,0"
                                     Style="{StaticResource font_style}"
                                     Text="Home" />
 
+
                             </StackPanel>
-
                             <!--  // Tooltip //  -->
-
                             <ListViewItem.ToolTip>
 
                                 <ToolTip
@@ -312,9 +296,7 @@
                             </ListViewItem.ToolTip>
 
                         </ListViewItem>
-
                         <!--  // Customers //  -->
-
                         <ListViewItem
                             Margin="0,0,0,15"
                             HorizontalAlignment="Left"
@@ -327,15 +309,16 @@
                                     Source="/Resources/images/img_contact.png"
                                     Stretch="None" />
 
+                                <Button Command="{Binding NavigateToCustomer}" />
+
+
                                 <TextBlock
                                     Margin="25,0,0,0"
                                     Style="{StaticResource font_style}"
                                     Text="Customers" />
 
                             </StackPanel>
-
                             <!--  // Tooltip //  -->
-
                             <ListViewItem.ToolTip>
 
                                 <ToolTip
@@ -346,14 +329,12 @@
                             </ListViewItem.ToolTip>
 
                         </ListViewItem>
-
                         <!--  // Close App //  -->
-
                         <ListViewItem
                             Margin="0,0,0,15"
                             HorizontalAlignment="Left"
                             MouseEnter="ListViewItem_MouseEnter"
-                            Selected="ListBoxItem_OnSelected">
+                            Selected="CloseApp_OnSelected">
 
                             <StackPanel Width="230" Orientation="Horizontal">
 
@@ -368,9 +349,7 @@
                                     Text="Close App" />
 
                             </StackPanel>
-
                             <!--  // Tooltip //  -->
-
                             <ListViewItem.ToolTip>
 
                                 <ToolTip
@@ -381,9 +360,7 @@
                             </ListViewItem.ToolTip>
 
                         </ListViewItem>
-
                         <!--  // Listview items style template //  -->
-
                         <ListView.ItemContainerStyle>
 
                             <Style TargetType="ListViewItem">
@@ -447,5 +424,6 @@
 
         </Grid>
 
+        <ContentControl Content="{Binding Navigation.CurrentView}" />
     </Grid>
 </Window>

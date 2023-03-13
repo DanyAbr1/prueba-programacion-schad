@@ -1,4 +1,6 @@
 ﻿using System.Windows.Input;
+using System.Windows.Navigation;
+using Test_InvoiceApp.ViewModels;
 
 namespace Test_InvoiceApp
 {
@@ -17,7 +19,7 @@ namespace Test_InvoiceApp
 
         public MainWindow()
         {
-                
+            InitializeComponent();
         }
 
         private void ListViewItem_MouseEnter(object sender, MouseEventArgs e)
@@ -53,7 +55,7 @@ namespace Test_InvoiceApp
             Tg_Btn.IsChecked = false;
         }
 
-        private void ListBoxItem_OnSelected(object sender, RoutedEventArgs e)
+        private void CloseApp_OnSelected(object sender, RoutedEventArgs e)
         {
             Close();
         }
