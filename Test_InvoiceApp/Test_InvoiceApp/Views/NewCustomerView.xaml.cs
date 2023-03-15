@@ -12,12 +12,15 @@ namespace Test_InvoiceApp.Views
             InitializeComponent();
         }
 
-        
+
         private void Create_OnClick(object sender, RoutedEventArgs e)
         {
             NewCustomerViewModel vm = (NewCustomerViewModel)DataContext;
-            vm.CreateCustomer();
-            Close();
+            if (vm.ValidationNewCustomer())
+            {
+                vm.CreateCustomer();
+                Close();
+            }
         }
 
         private void Cancel_OnClick(object sender, RoutedEventArgs e)

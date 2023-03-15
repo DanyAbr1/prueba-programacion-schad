@@ -20,6 +20,8 @@ public partial class UpdateCustomerView : Window
 
         CustomerUpdate.CustName = TxtCustName.Text;
         CustomerUpdate.Adress = TxtAddress.Text;
+        CustomerUpdate.CustomerTypeId = CustomerUpdate.Id;
+        vm.CustomerTypeSelected = CustomerUpdate.CustomerType;
         vm.UpdateCustomer(CustomerUpdate);
         Close();
     }
@@ -27,5 +29,12 @@ public partial class UpdateCustomerView : Window
     private void Cancel_OnClick(object sender, RoutedEventArgs e)
     {
         Close();
+    }
+
+    private void UpdateCustomerView_OnLoaded(object sender, RoutedEventArgs e)
+    {
+        UpdateCustomerViewModel vm = (UpdateCustomerViewModel)DataContext;
+        vm.CustomerTypeSelected = CustomerUpdate.CustomerType;
+        vm.GetCustomerType();
     }
 }

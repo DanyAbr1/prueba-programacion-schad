@@ -65,7 +65,6 @@ public class NewCustomerViewModel : ViewModel
 
     public void CreateCustomer()
     {
-
         try
         {
             var customer = new Customer
@@ -84,6 +83,32 @@ public class NewCustomerViewModel : ViewModel
             Console.WriteLine(e);
         }
 
+    }
+
+    public bool ValidationNewCustomer()
+    {
+        if (string.IsNullOrEmpty(CustName))
+        {
+            MessageBox.Show("Please fill out the Customer Name.");
+            return false;
+
+        }
+
+        if (string.IsNullOrEmpty(Address))
+        {
+            MessageBox.Show("Please fill out the Address.");
+            return false;
+
+        }
+
+        if (CustomerTypeSelected == null)
+        {
+            MessageBox.Show("Please select a customer type");
+            return false;
+
+        }
+
+        return true; 
     }
 
 }

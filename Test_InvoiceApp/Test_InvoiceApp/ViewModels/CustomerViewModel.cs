@@ -25,7 +25,7 @@ public class CustomerViewModel : ViewModel
 
     public void GetCustomer()
     {
-        CustomerList = DbContextHelper.DbContext.Customers.AsNoTracking().ToList();
+        CustomerList = DbContextHelper.DbContext.Customers.Include(c => c.CustomerType).AsNoTracking().ToList();
     }
 
 
