@@ -22,7 +22,7 @@ internal class NavigationService : ObservableObject, INavigationService
         _viewModelFactory = viewModelFactory;
     }
     public void NavigateTo<T>() where T : ViewModel
-    {
+    { 
         CurrentView = _viewModelFactory.Invoke(typeof(T));
     }
 }

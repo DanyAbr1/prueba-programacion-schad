@@ -1,4 +1,5 @@
 ﻿using Test_InvoiceApp.Core;
+using Test_InvoiceApp.Helper;
 using Test_InvoiceApp.Services;
 
 namespace Test_InvoiceApp.ViewModels;
@@ -17,6 +18,7 @@ public class MainViewModel : ViewModel
             OnPropertyChanged();
         }
     }
+    
 
     public RelayCommand NavigateToHome { get; set; }
     public RelayCommand NavigateToCustomer { get; set; }
