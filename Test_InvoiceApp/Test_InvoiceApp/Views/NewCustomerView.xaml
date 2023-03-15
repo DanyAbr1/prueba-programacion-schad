@@ -8,7 +8,8 @@
     xmlns:viewModels="clr-namespace:Test_InvoiceApp.ViewModels"
     Title="NewCustomerView"
     Width="600"
-    Height="250"
+    Height="293"
+    Loaded="NewCustomerView_OnLoaded"
     ResizeMode="NoResize"
     ShowInTaskbar="False"
     Topmost="True"
@@ -42,6 +43,17 @@
                 Margin="0,10"
                 Padding="5"
                 Text="{Binding Address}" />
+
+            <TextBlock Text="Customer type" />
+
+            <ComboBox
+                Margin="0,10"
+                Padding="5"
+                DisplayMemberPath="Description"
+                ItemsSource="{Binding ListCustomerTypes}"
+                SelectedItem="{Binding CustomerTypeSelected}"
+                Text="Selected a customer type" />
+
 
             <Grid
                 Margin="10"

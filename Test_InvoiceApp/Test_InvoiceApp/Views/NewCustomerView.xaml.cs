@@ -24,5 +24,12 @@ namespace Test_InvoiceApp.Views
         {
             Close();
         }
+
+        private void NewCustomerView_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            NewCustomerViewModel vm = (NewCustomerViewModel)DataContext;
+
+            vm.GetCustomerType();
+        }
     }
 }
