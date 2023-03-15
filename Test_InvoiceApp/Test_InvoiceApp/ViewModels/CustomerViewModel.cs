@@ -29,6 +29,14 @@ public class CustomerViewModel : ViewModel
     }
 
 
+    public void SearchCustomer(string value)
+    {
+        CustomerList = DbContextHelper.DbContext.Customers.AsNoTracking()
+            .Where(item => item.CustName!.Contains(value) || item.Adress!.Contains(value))
+            .ToList();
+    }
+
+
     public void RemoveCustomer(Customer customer)
     {
         try

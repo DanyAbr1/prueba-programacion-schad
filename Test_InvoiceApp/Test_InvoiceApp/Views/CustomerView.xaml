@@ -56,9 +56,11 @@
                     Stretch="Fill" />
 
                 <TextBox
+                    x:Name="SearchTxt"
                     Grid.Column="1"
                     Margin="0,10"
-                    Padding="5" />
+                    Padding="5"
+                    TextChanged="Search_OnTextChanged" />
             </Grid>
 
 
@@ -98,17 +100,11 @@
                                             Width="50"
                                             Margin="10,0"
                                             Background="#FED330"
-                                            Content="Edit" />
-
-                                        <!--<Button
-                                            Width="50"
-                                            Background="Red"
-                                            Click="Delete_OnClick"
-                                            Content="Delete"
-                                            Foreground="White" />-->
+                                            Click="Edit_OnClick"
+                                            Content="Edit"
+                                            Tag="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}}}" />
 
                                         <Button
-                                            x:Name="btndil"
                                             Width="50"
                                             Background="Red"
                                             Click="Delete_OnClick"

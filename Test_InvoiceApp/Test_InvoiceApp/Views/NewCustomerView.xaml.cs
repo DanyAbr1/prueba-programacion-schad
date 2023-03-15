@@ -5,7 +5,7 @@ namespace Test_InvoiceApp.Views
     /// <summary>
     /// Interaction logic for NewCustomerView.xaml
     /// </summary>
-    public partial class NewCustomerView : Window
+    public partial class NewCustomerView
     {
         public NewCustomerView()
         {
