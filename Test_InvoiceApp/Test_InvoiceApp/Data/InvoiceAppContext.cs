@@ -35,7 +35,7 @@ public class InvoiceAppContext : DbContext
 
         base.OnConfiguring(optionsBuilder);
 
-        optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTrackingWithIdentityResolution);
+        optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
 
         optionsBuilder.UseSqlServer(Configuration.GetConnectionString("SqlConnection"));
 

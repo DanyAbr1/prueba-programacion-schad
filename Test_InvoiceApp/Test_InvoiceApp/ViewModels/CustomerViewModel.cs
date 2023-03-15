@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Test_InvoiceApp.Core;
 using Test_InvoiceApp.Helper;
 
@@ -26,9 +25,25 @@ public class CustomerViewModel : ViewModel
 
     public void GetCustomer()
     {
-        //CustomerList = DbContextHelper.DbContext.Set<Customer>().AsNoTracking().ToList();
         CustomerList = DbContextHelper.DbContext.Customers.AsNoTracking().ToList();
     }
 
+
+    public void RemoveCustomer(Customer customer)
+    {
+        try
+        {
+            DbContextHelper.DbContext.Customers.Remove(customer);
+            DbContextHelper.DbContext.SaveChanges();
+            GetCustomer();
+        }
+        catch
+        {
+            DbContextHelper.DbContext.Customers.Remove(customer);
+            DbContextHelper.DbContext.SaveChanges();
+            GetCustomer();
+        }
+
+    }
 }
 

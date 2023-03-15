@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System.Windows.Controls;
+using System.Windows.Input;
 using Test_InvoiceApp.ViewModels;
 
 namespace Test_InvoiceApp.Views
@@ -26,6 +27,19 @@ namespace Test_InvoiceApp.Views
         {
             CustomerViewModel vm = (CustomerViewModel)DataContext;
             vm.GetCustomer();
+        }
+
+        private void Delete_OnClick(object sender, RoutedEventArgs e)
+        {
+            object? item = ((sender as Button)?.Tag as ListViewItem)?.DataContext;
+            Customer? customer = (item as Customer);
+
+            if (customer != null)
+            {
+                CustomerViewModel vm = (CustomerViewModel)DataContext;
+                vm.RemoveCustomer(customer);
+            }
+
         }
     }
 }

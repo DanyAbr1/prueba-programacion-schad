@@ -100,11 +100,23 @@
                                             Background="#FED330"
                                             Content="Edit" />
 
-                                        <Button
+                                        <!--<Button
                                             Width="50"
                                             Background="Red"
+                                            Click="Delete_OnClick"
                                             Content="Delete"
-                                            Foreground="White" />
+                                            Foreground="White" />-->
+
+                                        <Button
+                                            x:Name="btndil"
+                                            Width="50"
+                                            Background="Red"
+                                            Click="Delete_OnClick"
+                                            Content="Delete"
+                                            Foreground="White"
+                                            Tag="{Binding RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}}}" />
+
+
                                     </StackPanel>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
