@@ -20,13 +20,13 @@ public class MainViewModel : ViewModel
     }
     
 
-    public RelayCommand NavigateToHome { get; set; }
+    public RelayCommand NavigateToCustomerType { get; set; }
     public RelayCommand NavigateToCustomer { get; set; }
 
     public MainViewModel(INavigationService navigationService)
     {
         Navigation = navigationService;
-        NavigateToHome = new RelayCommand(obj => { Navigation.NavigateTo<HomeViewModel>(); }, o => true);
+        NavigateToCustomerType = new RelayCommand(obj => { Navigation.NavigateTo<CustomerTypeViewModel>(); }, o => true);
         NavigateToCustomer = new RelayCommand(obj => { Navigation.NavigateTo<CustomerViewModel>(); }, o => true);
     }
 }

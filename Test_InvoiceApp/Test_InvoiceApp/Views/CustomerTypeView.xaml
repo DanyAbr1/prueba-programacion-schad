@@ -1,5 +1,5 @@
 ﻿<UserControl
-    x:Class="Test_InvoiceApp.Views.CustomerView"
+    x:Class="Test_InvoiceApp.Views.CustomerTypeView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,20 +7,19 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="450"
     d:DesignWidth="800"
-    Loaded="CustomerView_OnLoaded"
+    Loaded="CustomerTypesView_OnLoaded"
     mc:Ignorable="d">
-
     <Grid Background="#FFFFFF">
 
 
         <StackPanel Margin="10">
 
-            <!--  //Header Customers//  -->
+            <!--  //Header Customers Type//  -->
             <TextBlock
                 HorizontalAlignment="Center"
                 FontSize="30"
                 FontWeight="SemiBold"
-                Text="Customers" />
+                Text="Customers Types" />
 
             <!--  // Button add//  -->
 
@@ -67,7 +66,7 @@
             <ListView
                 Height="430"
                 MaxHeight="430"
-                ItemsSource="{Binding CustomerList, Mode=TwoWay}"
+                ItemsSource="{Binding CustomerTypesList, Mode=TwoWay}"
                 ScrollViewer.CanContentScroll="False"
                 ScrollViewer.VerticalScrollBarVisibility="Visible">
 
@@ -77,19 +76,10 @@
                     <GridView AllowsColumnReorder="False">
 
                         <GridViewColumn
-                            Width="150"
-                            DisplayMemberBinding="{Binding Path=CustName}"
-                            Header="Customer Name" />
+                            Width="420"
+                            DisplayMemberBinding="{Binding Path=Description}"
+                            Header="Description" />
 
-                        <GridViewColumn
-                            Width="170"
-                            DisplayMemberBinding="{Binding Path=Adress}"
-                            Header="Address" />
-
-                        <GridViewColumn
-                            Width="80"
-                            DisplayMemberBinding="{Binding Path=Status}"
-                            Header="Status" />
 
                         <GridViewColumn Width="135">
                             <GridViewColumn.CellTemplate>
@@ -125,5 +115,6 @@
             </ListView>
 
         </StackPanel>
+
     </Grid>
 </UserControl>

@@ -19,10 +19,10 @@ namespace Test_InvoiceApp
             Close();
         }
 
-        private void Home_OnSelected(object sender, RoutedEventArgs e)
+        private void CustomerType_OnSelected(object sender, RoutedEventArgs e)
         {
             MainViewModel vm = (MainViewModel)DataContext;
-            vm.NavigateToHome.Execute(this);
+            vm.NavigateToCustomerType.Execute(this);
 
         }
 

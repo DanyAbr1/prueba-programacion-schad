@@ -13,15 +13,13 @@ public class InvoiceAppContext : DbContext
 
     public DbSet<Customer> Customers { get; set; }
 
+    public DbSet<CustomerType> CustomerTypes { get; set; }
+ 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
         modelBuilder.BuildCustomerTable();
-
-
-
-        //(options => options.UseSqlServer(
-        //    
+        modelBuilder.BuildCustomerTable();
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

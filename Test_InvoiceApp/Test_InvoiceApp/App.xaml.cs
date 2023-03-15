@@ -25,7 +25,7 @@ namespace Test_InvoiceApp
             });
 
             services.AddSingleton<MainViewModel>();
-            services.AddSingleton<HomeViewModel>();
+            services.AddSingleton<CustomerTypeViewModel>();
             services.AddSingleton<CustomerViewModel>();
             services.AddSingleton<NewCustomerViewModel>();
             services.AddSingleton<UpdateCustomerViewModel>();

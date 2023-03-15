@@ -168,35 +168,12 @@
                         Background="Transparent"
                         BorderBrush="Transparent"
                         ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                        <!--  // Home //  -->
-                        <ListViewItem Margin="0,0,0,15" HorizontalAlignment="Left" Selected="Home_OnSelected">
 
-                            <StackPanel Width="230" Orientation="Horizontal">
-
-                                <Image
-                                    Margin="12,0,0,0"
-                                    Source="/Resources/images/img_home.png"
-                                    Stretch="None" />
-                                <TextBlock
-                                    Margin="25,0,0,0"
-                                    Style="{StaticResource font_style}"
-                                    Text="Home" />
-
-
-                            </StackPanel>
-                            <!--  // Tooltip //  -->
-                            <ListViewItem.ToolTip>
-
-                                <ToolTip
-                                    x:Name="tt_home"
-                                    Content="Home"
-                                    Style="{StaticResource tt_style}" />
-
-                            </ListViewItem.ToolTip>
-
-                        </ListViewItem>
                         <!--  // Customers //  -->
-                        <ListViewItem Margin="0,0,0,15" HorizontalAlignment="Left" Selected="Customer_OnSelected">
+                        <ListViewItem
+                            Margin="0,0,0,15"
+                            HorizontalAlignment="Left"
+                            Selected="Customer_OnSelected">
 
                             <StackPanel Width="230" Orientation="Horizontal">
 
@@ -214,10 +191,35 @@
                             <!--  // Tooltip //  -->
                             <ListViewItem.ToolTip>
 
-                                <ToolTip
-                                    x:Name="tt_customers"
-                                    Content="Customers"
-                                    Style="{StaticResource tt_style}" />
+                                <ToolTip Content="Customers" Style="{StaticResource tt_style}" />
+
+                            </ListViewItem.ToolTip>
+
+                        </ListViewItem>
+
+                        <!--  // Customer Type //  -->
+                        <ListViewItem
+                            Margin="0,0,0,15"
+                            HorizontalAlignment="Left"
+                            Selected="CustomerType_OnSelected">
+
+                            <StackPanel Width="230" Orientation="Horizontal">
+
+                                <Image
+                                    Margin="5,0,0,0"
+                                    Source="/Resources/images/img_customer-type.png"
+                                    Stretch="Uniform" />
+                                <TextBlock
+                                    Margin="10,0,0,0"
+                                    Style="{StaticResource font_style}"
+                                    Text="Customer Type" />
+
+
+                            </StackPanel>
+                            <!--  // Tooltip //  -->
+                            <ListViewItem.ToolTip>
+
+                                <ToolTip Content="Customer Type" Style="{StaticResource tt_style}" />
 
                             </ListViewItem.ToolTip>
 

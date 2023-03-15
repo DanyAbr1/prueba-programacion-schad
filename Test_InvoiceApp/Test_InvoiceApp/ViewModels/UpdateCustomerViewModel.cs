@@ -12,13 +12,17 @@ public class UpdateCustomerViewModel : ViewModel
 
     public void UpdateCustomer(Customer customer)
     {
-        if (customer != null)
+
+        try
         {
             DbContextHelper.DbContext.Customers.Update(customer);
             DbContextHelper.DbContext.SaveChangesAsync();
-            DbContextHelper.DbContext.Entry(customer).State = EntityState.Detached;
         }
-
+        catch
+        {
+            DbContextHelper.DbContext.Customers.Update(customer);
+            DbContextHelper.DbContext.SaveChangesAsync();
+        }
     }
 
 }

@@ -27,11 +27,26 @@ public static class ModelBuilderExtensions
                 .HasColumnType("bit")
                 .IsRequired();
 
-            etb.Property(e => e.CustomerTypeId)
-                .HasColumnType("int")
-                .IsRequired();
+            etb.HasOne<CustomerType>(s => s.CustomerType)
+                .WithMany(g => g.Customers)
+                .HasForeignKey(s => s.CustomerTypeId);
         });
 
+
+        modelBuilder.Entity<CustomerType>(etb =>
+        {
+            etb.ToTable("CustomerTypes", "dbo");
+
+            etb.HasKey(e => e.Id);
+
+            etb.HasIndex(e => e.Id);
+
+            etb.Property(e => e.Id);
+
+            etb.Property(e => e.Description)
+                .HasColumnType("varchar(70)")
+                .IsRequired();
+        });
         return modelBuilder;
     }
 }
